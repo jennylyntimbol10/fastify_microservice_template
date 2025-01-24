@@ -35,7 +35,7 @@
         "type": "mysql",
         "mysql": {
             "connection": {
-                "host": "ixacn-connports-demo-iotdb.mysql.database.azure.com",
+                "host": "",
                 "port": 3306,
                 "user": "CHANGEME",
                 "password": "CHANGEME",
