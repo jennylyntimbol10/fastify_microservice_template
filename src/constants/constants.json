@@ -1,0 +1,52 @@
+{
+    "routes": {
+        "health": "/health",
+        "products": {
+            "countActive": "/countActive",
+            "create": "/create",
+            "status": "/status",
+            "info": "/info",
+            "listAll": "/listAll",
+            "remove": "/remove/:name",
+            "getProductById": "/getProductById",
+            "getAllProducts": "/getProducts",
+            "getCountByCategory": "/getCountByCategory",
+            "createUserWithCategory":"/createUserWithCategory",
+            "deleteCategory":"/deleteCategory/:name"
+        },
+        "sample": {
+            "ping": "/ping",
+            "fail": "/pingfail"
+        }
+    },
+    "status_codes": {
+        "success": {
+            "code": 200,
+            "message": "Success"
+        },
+        "server_error": {
+            "internal_server_error": {
+                "code": 500,
+                "message": "Internal Server Error"
+            }
+        },
+        "client_error": {
+            "bad_request": {
+                "code": 400,
+                "message": "Bad Request"
+            },
+            "not_found": {
+                "code": 404,
+                "message": "Not found"
+            }
+        }
+    },
+    "prisma_error_code": {
+        "P2025": 404
+    },
+    "prisma_logging": {
+        "development": ["query", "info", "warn","error"],
+        "test": ["query", "info", "warn","error"],
+        "production": ["warn","error"]
+    }
+}

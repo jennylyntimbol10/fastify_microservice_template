@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "target": "ES2021",
+        "module": "CommonJS",
+        "outDir": "dist",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "resolveJsonModule": true,
+        "strict": false,
+        "esModuleInterop": true,
+    },
+    "exclude": ["src/tests/*", "tests/**/*"]
+}

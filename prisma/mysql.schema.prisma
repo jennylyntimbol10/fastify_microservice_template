@@ -1,0 +1,100 @@
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["windows", "debian-openssl-1.1.x", "debian-openssl-3.0.x"]
+}
+
+datasource database {
+    provider = "mysql"
+    url      = env("MYSQL_DATABASE_URL") // Will be overwritten by the prisma.wrapper plugin
+}
+
+model Items {
+    id        Int     @id @default(autoincrement())
+    name      String
+    stock     Int
+    unitPrice Float   @default(0.0)
+    isActive  Boolean @default(false)
+
+    category   Category? @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    categoryId Int?
+
+    Brand   Brand? @relation(fields: [brandId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    brandId Int?
+}
+
+model Category {
+    id    Int     @id @default(autoincrement())
+    name  String
+    Items Items[]
+}
+
+model Brand {
+    id    Int     @id @default(autoincrement())
+    name  String
+    Items Items[]
+}
+
+
+
+// user.prisma
+model User {
+  user_id        String      @id @default(uuid())
+  first_name     String
+  last_name      String
+  company_code   String
+  account_status Int
+  tenant_id      String
+  created_date   DateTime
+  created_by     String
+  modified_date  DateTime
+  modified_by    String
+
+  roles          UserRole[]
+  ports          UserPort[]
+}
+
+model UserRole {
+  user_role_id   String      @id @default(uuid())
+  user_id        String
+  role_id        String
+  created_date   DateTime
+  created_by     String
+  modified_date  DateTime
+  modified_by    String
+
+  user           User        @relation(fields: [user_id], references: [user_id])
+  role           Role        @relation(fields: [role_id], references: [role_id])
+}
+
+model UserPort {
+  user_port_id   String      @id @default(uuid())
+  user_id        String
+  port_id        String
+  created_date   DateTime
+  created_by     String
+  modified_date  DateTime
+  modified_by    String
+
+  user           User        @relation(fields: [user_id], references: [user_id])
+}
+
+model Role {
+  role_id        String      @id @default(uuid())
+  name           String
+  tenant_id      String
+  created_date   DateTime
+  created_by     String
+  modified_date  DateTime
+  modified_by    String
+
+  users          UserRole[]
+}
+
+model Tenant {
+  tenant_id      String      @id @default(uuid())
+  name           String
+  created_date   DateTime
+  created_by     String
+  modified_date  DateTime
+  modified_by    String
+}

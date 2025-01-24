@@ -1,0 +1,53 @@
+{
+    "app": {
+        "healthcheck": {
+            "url": "APP_HEALTHCHECK_URL",
+            "expose_up_time": "APP_HEALTHCHECK_EXPOSE_UP_TIME"
+        },
+        "config": {
+            "host": "APP_CONFIG_HOST",
+            "port": "APP_CONFIG_PORT",
+            "jwt": {
+                "enable_validation": "APP_CONFIG_JWT_ENABLE_VALIDATION",
+                "auth": {
+                    "publickey": "APP_CONFIG_JWT_AUTH_PUBLICKEY"
+                }
+            }
+        },
+        "logging": {
+            "log_file_location": "APP_LOGGING_LOG_FILE_LOCATION",
+            "log_file_name": "APP_LOGGING_LOG_FILE_NAME",
+            "log_level": "APP_LOGGING_LOG_LEVEL",
+            "log_timestamp_format": "APP_LOGGING_LOG_TIMESTAMP_FORMAT",
+            "log_file_date_pattern": "APP_LOGGING_LOG_FILE_DATE_PATTERN",
+            "log_file_max_size": "APP_LOGGING_LOG_FILE_MAX_SIZE",
+            "log_file_max_file": "APP_LOGGING_LOG_FILE_MAX_FILE",
+            "log_file_zip_archive": "APP_LOGGING_LOG_FILE_ZIP_ARCHIVE"
+        }
+    },
+    "database": {
+        "type": "DATABASE_TYPE",
+        "mysql": {
+            "connection": {
+                "host": "DATABASE_MYSQL_CONNECTION_HOST",
+                "port": "DATABASE_MYSQL_CONNECTION_PORT",
+                "user": "DATABASE_MYSQL_CONNECTION_USER",
+                "password": "DATABASE_MYSQL_CONNECTION_PASSWORD",
+                "database": "DATABASE_MYSQL_CONNECTION_DATABASE",
+                "timeout_msecs": "DATABASE_MYSQL_CONNECTION_TIMEOUT_MSECS"
+            },
+            "ssl": {
+                "request_cert": "DATABASE_MYSQL_SSL_REQUEST_CERT",
+                "reject_unauthorized": "DATABASE_MYSQL_SSL_REJECT_UNAUTHORIZED",
+                "ca": "DATABASE_MYSQL_SSL_CA",
+                "capath": "DATABASE_MYSQL_SSL_CAPATH"
+            },
+            "pool": {
+                "minimum": "DATABASE_MYSQL_POOL_MINIMUM",
+                "maximum": "DATABASE_MYSQL_POOL_MAXIMUM"
+            },
+            "enable_debug": "DATABASE_MYSQL_ENABLE_DEBUG",
+            "enable_async_stack_traces": "DATABASE_MYSQL_ENABLE_ASYNC_STACK_TRACES"
+        }
+    }
+}
