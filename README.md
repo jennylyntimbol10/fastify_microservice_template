@@ -1,0 +1,1 @@
+# fastify_microservice_template
