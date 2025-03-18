@@ -1,7 +1,7 @@
 {
     "name": "microservice-template",
     "version": "0.1.0",
-    "description": "A bootstrap template for a fastify microservice.",
+    "description": "fastify microservice.",
     "main": "dist/server.js",
     "scripts": {
         "clean": "rimraf dist/*",
